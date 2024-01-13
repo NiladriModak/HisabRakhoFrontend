@@ -4,16 +4,16 @@ export const getProduct=(keyword = "",category)=>async(dispatch)=>{
     try{
         const port="http://localhost:80";
         dispatch({type: ALL_PRODUCT_REQUEST});
-        // let link=`${port}/api/allProducts`
-        // if(keyword){
-        //     link=link+keyword
-        // }
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         let link = `/api/allProducts?keyword=${keyword}`;
 
         if (category) {
             link = `/api/allProducts?keyword=${keyword}&&catagory=${category}`;
         }
-        const {data} = await axios.get(link);
+        const {data} = await axios.get(link,config);
         console.log("The all product user action  - ",data)
         dispatch({type:ALL_PRODUCT_SUCCESS,payload:data});
     }catch(error){
@@ -28,7 +28,11 @@ export const getSingleProductDetails=(id)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type: SINGLE_PRODUCT_REQUEST});
-        const {data} = await axios.get(`/api/product/${id}`)
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+        const {data} = await axios.get(`/api/product/${id}`,config)
         // console.log("single",data)
         dispatch({type:SINGLE_PRODUCT_SUCCESS,payload:data});
     } catch (error) {
@@ -73,7 +77,13 @@ export const AllCatagory=(keyword="")=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type: ALL_CATAGORY_REQUEST});
-        const {data} = await axios.get(`/api/allCatagory`)
+
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+
+        const {data} = await axios.get(`/api/allCatagory`,config)
         
         let tobesend=data.p;
 
@@ -104,12 +114,18 @@ export const AllVendor=(vendorName)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type: ALL_VENDOR_REQUEST});
+
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+
         let link = `/api/allVendor`;
         if (vendorName) {
             link = `/api/allVendor?vendorName=${vendorName}`;
 
         }
-        const {data} = await axios.get(link);
+        const {data} = await axios.get(link,config);
 
         dispatch({type:ALL_VENDOR_SUCCESS,payload:data});
     } catch (error) {
