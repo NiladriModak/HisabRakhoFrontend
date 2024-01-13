@@ -7,7 +7,7 @@ export const getProduct=(keyword = "",category)=>async(dispatch)=>{
         const config={
             headers:{
                 "Content-Type": "application/json",
-                "Cookie": `token=${localStorage.getItem("UserToken")}`
+                // "Cookie": `token=${localStorage.getItem("UserToken")}`
             },
             withCredentials: true,
         }
@@ -83,7 +83,7 @@ export const AllCatagory=(keyword="")=>async(dispatch)=>{
 
         const config={
             headers:{"Content-Type": "application/json",
-                'Cookie': `token=${localStorage.getItem("UserToken")}`
+                // 'Cookie': `token=${localStorage.getItem("UserToken")}`
             },
             withCredentials: true,
         }
@@ -122,7 +122,7 @@ export const AllVendor=(vendorName)=>async(dispatch)=>{
 
         const config={
             headers:{"Content-Type": "application/json",
-            'Cookie': `token=${localStorage.getItem("UserToken")}`
+            // 'Cookie': `token=${localStorage.getItem("UserToken")}`
         },
             withCredentials: true,
         }
