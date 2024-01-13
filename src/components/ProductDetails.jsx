@@ -74,6 +74,7 @@ function ProductDetails() {
 
     dispatch(AddStock(myForm,params.id))
     setOpen(false);
+    dispatch(getSingleProductDetails(params.id))
     window.location.reload();//to reload window
   }
 
@@ -96,6 +97,7 @@ function ProductDetails() {
     dispatch(EmptyStock(myForm,params.id))
     setOpen(false);
     dispatch(getSingleProductDetails(params.id))
+    window.location.reload();
   }
 
   //Filter from state
@@ -123,6 +125,7 @@ function ProductDetails() {
     myForm.set("price",ProductPrice||product.product?.price);
     dispatch(editProduct(myForm,params.id))
     dispatch(getSingleProductDetails(params.id))
+    window.location.reload();
   }
   // const navigator = useNavigate();
 
@@ -140,7 +143,7 @@ function ProductDetails() {
     dispatch(AllCatagory())
     dispatch(AllVendor(""))
   }
-  }, [dispatch,params.id,error,caterror,product])
+  }, [dispatch,params.id,error,caterror])
   
   //SideBar Click
   const [Click, setClick] = useState(window.screen.width>600);
