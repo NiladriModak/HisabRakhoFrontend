@@ -75,7 +75,7 @@ function ProductDetails() {
     dispatch(AddStock(myForm,params.id))
     setOpen(false);
     dispatch(getSingleProductDetails(params.id))
-    window.location.reload();//to reload window
+    // window.location.reload();//to reload window
   }
 
   //Substract Stock handler
