@@ -1,11 +1,11 @@
 import React from 'react'
-import img6 from "../../img6"
-import img7 from "../../img7"
-import img8 from "../../img8"
-import img9 from "../../img9"
-import img10 from "../../img10"
+// import img6 from "../../img6"
+// import img7 from "../../img7"
+// import img8 from "../../img8"
+// import img9 from "../../img9"
+// import img10 from "../../img10"
 function DashboardVendor(props) {
-    const arr=[img6,img7,img8,img9,img10]
+    const arr=['/img6','/img7','/img8','/img9','/img10']
     let i = props.image
   return (
     <div>

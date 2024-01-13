@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { UpdatePayments, getSingleVendor } from '../../actions/productActions';
 import {  useParams } from 'react-router-dom';
-import img11 from "../../img11";
+// import img11 from "../../img11";
 import "./VendorDetails.css";
 import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
 import Sidebar from '../user/Sidebar';
@@ -138,7 +138,7 @@ function VendorDetails() {
             </div>
         </div>
         <div>
-            <img src={img11} alt='hi' style={{"width":"25vmax"}}/>
+            <img src='/img11' alt='hi' style={{"width":"25vmax"}}/>
         </div>
 
     </div>
