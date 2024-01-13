@@ -1,0 +1,21 @@
+.CatagoryBox{
+    width: fit-content;
+    height: 4vmax;
+    margin: 2vmax;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    text-decoration: none;
+    color: black;
+    font-family: 'Times New Roman', Times, serif;
+}
+/* .CatagoryBox:hover{
+    background-color: rgb(141, 174, 236);
+} */
+@media screen and (max-width:600px) {
+    .CatagoryBox{
+        width: fit-content;
+        height: 6vmax;
+        padding: 3vmax;
+    }
+}

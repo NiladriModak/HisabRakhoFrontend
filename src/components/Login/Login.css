@@ -1,0 +1,65 @@
+.MainContainer{
+    display: flex;
+    /* flex-wrap: wrap; */
+}
+.MainContainer>div{
+    width: 50%;
+    border-right: 1px solid black;
+}
+.firstDiv{
+    padding: 4vmax;
+}
+.firstDiv>img{
+    width: 100%;
+}
+.secDiv{
+    padding: 6vmax;
+}
+.LoginBox{
+    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    width: 70%;
+    padding-left: 3vmax;
+}
+.LoginBox > h7{
+    margin-left: 60%;
+}
+.LoginBox>div>input{
+    padding: .6vmax;
+    width: 90%;
+    height: 2vmax;
+}
+.LoginBox>div>button{
+    font-size: medium;
+    padding: 0.5vmax;
+    margin-top: 2vmax;
+    cursor: pointer;
+    transition: all 0.5s;
+    background-color: hwb(219 7% 2%);
+    color: aliceblue;
+}
+.LoginBox>div>button:hover{
+    background-color: hwb(240 96% 3%);
+    color: rgb(0, 4, 7);
+}
+@media screen and (max-width:600px) {
+    .MainContainer{
+        flex-direction: column;
+    }
+    .MainContainer>div{
+        width: 100%;
+        border-right: none;
+    }
+    .secDiv{
+        justify-content: center;
+        align-items: center;
+        /* text-align: center; */
+    }
+    .LoginBox>div>input{
+        padding: 3vmax;
+        width: 90%;
+        height: 2vmax;
+        font-size: large;
+    }
+}

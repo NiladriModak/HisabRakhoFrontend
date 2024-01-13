@@ -1,0 +1,19 @@
+.FullContainer{
+    display: flex;
+    max-width: 100%;
+    padding: 1vmax;
+
+}
+.FullContainer>div{
+    justify-content: center;
+}
+@media screen and (max-width:600px) {
+    .FullContainer>div{
+        justify-content: center;
+        text-align: center;
+        width: 98%;
+    }
+    .FullContainer{
+        align-items: center;
+    }
+}

@@ -1,0 +1,55 @@
+.Header{
+    margin: 1.2vmax;
+    display: flex;
+    max-width: 100%;
+    background-color: rgb(186, 222, 247);
+    padding: 0.8vmax;
+    border: 3px solid rgb(163, 209, 241);;
+    justify-content: space-between;
+    align-items: center;
+}
+.Icon{
+    width: 20%;
+    text-align: center;
+    padding-top: 1.2vmax;
+    margin: 1vmax;
+}
+.ProfileIconDiv{
+    margin-left: 2vmax;
+    align-items: center;
+    justify-content: center;
+    padding-top: 0.6vmax;
+}
+.TextBoxHeader{
+    display: flex;
+    flex-shrink: 2vmax;
+}
+.HeaderBtn{
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(163, 209, 241);;
+    background-color: rgb(186, 222, 247);
+    border: 2px solid rgb(42, 153, 161);;
+    color:rgb(0, 0, 0);
+    border-radius: 8px;
+    padding: 0 0;
+    transition: all 0.5s;
+    font-size: medium;
+    height: fit-content;
+    padding: 7px;
+}
+.HeaderBtn:hover{
+
+    background-color: rgb(35, 146, 190);
+    border: 2px solid rgb(42, 153, 161);;
+    color: aliceblue;
+}
+.Logout{
+    cursor: pointer;
+    
+}
+@media screen and (max-width:500px) {
+    .Header{
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}

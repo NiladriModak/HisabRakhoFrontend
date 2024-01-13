@@ -1,0 +1,48 @@
+.FullContainer{
+    display: flex;
+    max-width: 100%;
+    padding: 1vmax;
+}
+.Outerdiv{
+    width: 90%;
+    padding: 2vmax;
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.Outerdiv>div{
+    width: 46%;
+    height: fit-content;
+}
+.ItemContainer{
+    display: flex;
+    overflow: auto;
+    flex-wrap: wrap;
+    height: 80%;
+    width: 90%;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid #d8f3f298 ;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: meduim;
+    font-weight: 100;
+}
+.Item1{
+    display: flex;
+    width: 14vmax;
+    
+}
+.Item1>div{
+    margin: 1vmax;
+}
+@media screen and (max-width:600px) {
+    .Outerdiv{
+        flex-direction: column;
+    }
+    .Outerdiv>div{
+        width: 100%;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        margin-left: 2.8vmax;
+    }
+}

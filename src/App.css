@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+/* Webkit (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: solid rgb(132, 233, 236); ;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Firefox */
+/* Note: Firefox supports only color for scrollbar-thumb */
+/* You can use background-image for a more complex design */
+ /* scrollbar-color: #888 transparent; */

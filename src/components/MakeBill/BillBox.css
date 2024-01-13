@@ -1,0 +1,39 @@
+.BillBoxContainer {
+    display: flex;
+    width: 100%;
+    border: 1px solid #ddd; /* Optional: Add border around the table */
+    align-items: center;
+  }
+  
+  .TableCell {
+    flex: 1;
+    border: 1px solid #ddd; /* Optional: Add borders to cells */
+    padding: 8px;
+    height: 2vmax;
+    overflow: auto;
+    text-align: center;
+  }
+  .TableCell::-webkit-scrollbar {
+        width: 1px;
+        overflow-x: auto; /* Adjust the width as needed */
+    }
+  .TableCell .prod {
+    flex: 1;
+    border: 1px solid #ddd; /* Optional: Add borders to cells */
+    width: 14vmax;
+  }
+  @media screen and (max-width:600px){
+    .TableCell {
+        flex: 1;
+        flex-wrap: wrap;
+        border: 1px solid #ddd; /* Optional: Add borders to cells */
+        padding: 8px;
+        height: 10vmax;
+        overflow: auto;
+        text-align: center;
+      }
+      .TableCell::-webkit-scrollbar {
+        width: 1px;
+        overflow-x: auto; /* Adjust the width as needed */
+    }
+  }

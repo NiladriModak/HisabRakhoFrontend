@@ -1,0 +1,16 @@
+.FullContainer{
+    display: flex;
+    max-width: 100%;
+    padding: 1vmax;
+}
+.AllVendors{
+    display: flex;
+    flex-wrap: wrap;
+}
+@media screen and (max-width:600px) {
+    .FullContainer{
+        display: flex;
+        flex-direction: column;
+    }
+
+}

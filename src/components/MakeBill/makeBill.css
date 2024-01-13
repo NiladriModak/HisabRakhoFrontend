@@ -1,0 +1,29 @@
+.FullContainer{
+    display: flex;
+    max-width: 100%;
+    width: 97%;
+    padding: 1vmax;
+    align-items: flex-start;
+
+}
+.FullContainerDiv{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+.Entry{
+    display: flex;
+    justify-content: space-around;
+}
+.BtnAdd{
+    background-color: rgb(53, 121, 199);
+    color: aliceblue;
+    transition: all 0.5s;
+}
+.BtnAdd:hover{
+    background-color: rgb(237, 241, 245);
+    color: black;
+}
+.Autocomplete::-webkit-scrollbar {
+    width: 1px; /* Adjust the width as needed */
+}
