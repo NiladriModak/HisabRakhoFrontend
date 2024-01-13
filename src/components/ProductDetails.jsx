@@ -61,7 +61,7 @@ function ProductDetails() {
   const dispatch=useDispatch();
 
   //add stock handler
-  const handleAddStock= ()=>{
+  const handleAddStock=async ()=>{
     const myForm = new FormData();
     if(!addProduct){
       toast.error("Enter something")
@@ -72,11 +72,11 @@ function ProductDetails() {
 
     myForm.set("productId", params.id);
 
-    dispatch(AddStock(myForm,params.id))
+    await dispatch(AddStock(myForm,params.id))
 
     setOpen(false);
 
-    dispatch(getSingleProductDetails(params.id))
+    await dispatch(getSingleProductDetails(params.id))
     handleCloseAddDialog();
   }
 
@@ -116,7 +116,7 @@ function ProductDetails() {
   }
 
   //edit handler
-  const handleEditProductButton=()=>{
+  const handleEditProductButton=async()=>{
     if(ProductName==="" && ProductCatagory==="" && ProductPrice===0){
       toast.error("Please enter the details to be updated")
       return ;
@@ -125,8 +125,8 @@ function ProductDetails() {
     myForm.set("name",ProductName||product.product?.name);
     myForm.set("catagory",ProductCatagory||product.product?.catagory);
     myForm.set("price",ProductPrice||product.product?.price);
-    dispatch(editProduct(myForm,params.id))
-    dispatch(getSingleProductDetails(params.id))
+    await dispatch(editProduct(myForm,params.id))
+    await dispatch(getSingleProductDetails(params.id))
     handleCloseEdit();
   }
   // const navigator = useNavigate();
