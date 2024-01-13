@@ -140,7 +140,7 @@ function ProductDetails() {
     dispatch(AllCatagory())
     dispatch(AllVendor(""))
   }
-  }, [dispatch,params.id,error,caterror])
+  }, [dispatch,params.id,error,caterror,product])
   
   //SideBar Click
   const [Click, setClick] = useState(window.screen.width>600);
