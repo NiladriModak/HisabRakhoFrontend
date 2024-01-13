@@ -2,7 +2,7 @@
 import './App.css';
 import Header from './components/layout/Header';
 // import Sidebar from './components/user/Sidebar';
-import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
+import { HashRouter as Router,Route,Routes} from "react-router-dom";
 import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
 import Catagories from './components/Catagories';
