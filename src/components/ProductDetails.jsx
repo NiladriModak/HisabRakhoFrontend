@@ -81,7 +81,7 @@ function ProductDetails() {
   }
 
   //Substract Stock handler
-  const handleSubstractStock= ()=>{
+  const handleSubstractStock= async ()=>{
     const myForm = new FormData();
 
     if(!substractProduct){
@@ -96,9 +96,9 @@ function ProductDetails() {
 
     myForm.set("productId", params.id);
 
-    dispatch(EmptyStock(myForm,params.id))
+    await dispatch(EmptyStock(myForm,params.id))
     setOpen(false);
-    dispatch(getSingleProductDetails(params.id))
+    await dispatch(getSingleProductDetails(params.id))
     window.location.reload();
   }
 
