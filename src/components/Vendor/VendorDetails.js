@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {useDispatch, useSelector} from "react-redux"
 import { UpdatePayments, getSingleVendor } from '../../actions/productActions';
-import { useNavigate, useParams } from 'react-router-dom';
+import {  useParams } from 'react-router-dom';
 import img11 from "../../img11";
 import "./VendorDetails.css";
 import ViewHeadlineIcon from '@mui/icons-material/ViewHeadline';
@@ -12,7 +12,7 @@ import DialogContent from '@mui/material/DialogContent';
 import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
-import  { toast,Toaster } from 'react-hot-toast';
+import  { toast } from 'react-hot-toast';
 import { clearError } from '../../actions/userAction';
 function VendorDetails() {
 
@@ -40,7 +40,7 @@ function VendorDetails() {
     
     const dispatch=useDispatch();
     const params=useParams();
-    const {vendor,loading,error} = useSelector((state)=>state.vendorDetails)
+    const {vendor,error} = useSelector((state)=>state.vendorDetails)
 
     useEffect(() => {
       if(!localStorage.getItem("UserToken")){
@@ -51,7 +51,7 @@ function VendorDetails() {
         dispatch(clearError())
       }
       dispatch(getSingleVendor(params.id))
-    }, [dispatch,error,toast])
+    }, [dispatch,error,params.id])
     
 
 

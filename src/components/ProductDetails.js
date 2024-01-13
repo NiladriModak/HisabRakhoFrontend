@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { AddStock, AllCatagory, AllVendor, EmptyStock, clearError, editProduct, getProduct, getSingleProductDetails } from '../actions/productActions';
 import Sidebar from './user/Sidebar';
@@ -23,7 +23,7 @@ function ProductDetails() {
   const [openRecordDialog, setOpenRecordDialog] = React.useState(false);
   const [addProduct,setaddProduct] =useState(0);
   const [substractProduct,setsubstractProduct] =useState(0);
-  const [record,setRecord] = useState([]);
+  // const [record,setRecord] = useState([]);
   // const[VendorName,setVendorName]=useState("");
   const[ProductName,setProductName]=useState("");
   const[ProductPrice,setProductPrice]=useState(0);
@@ -32,7 +32,7 @@ function ProductDetails() {
 
   //Record
   const handleClickOpenRecordDialog = () => {
-    setRecord(product.Record)
+    // setRecord(product.Record)
     setOpenRecordDialog(true);
   };
 
@@ -76,7 +76,6 @@ function ProductDetails() {
     setOpen(false);
     window.location.reload();//to reload window
   }
-
 
   //Substract Stock handler
   const handleSubstractStock= ()=>{
@@ -125,7 +124,7 @@ function ProductDetails() {
     dispatch(editProduct(myForm,params.id))
     window.location.reload();
   }
-  const navigator = useNavigate();
+  // const navigator = useNavigate();
 
   //useEffect
   useEffect(() => {
@@ -141,7 +140,7 @@ function ProductDetails() {
     dispatch(AllCatagory())
     dispatch(AllVendor(""))
   }
-  }, [dispatch,params.id,toast,error])
+  }, [dispatch,params.id,error,caterror])
   
   //SideBar Click
   const [Click, setClick] = useState(window.screen.width>600);

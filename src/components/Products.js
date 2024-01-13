@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useAlert } from 'react-alert';
+// import { useAlert } from 'react-alert';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { clearError, getProduct } from '../actions/productActions';
 import ProductBox from './ProductBox';
 import Sidebar from './user/Sidebar';
@@ -10,11 +10,11 @@ import "./Product.css"
 import toast from 'react-hot-toast';
 
 function Products() {
-    const alert=useAlert();
+    // const alert=useAlert();
     const dispatch=useDispatch();
-    const {loading,error,product}=useSelector((state)=>state.product)
+    const {error,product}=useSelector((state)=>state.product)
     const location = useLocation();
-    const {isAuthenticated} = useSelector((state)=>state.loginUser)
+    // const {isAuthenticated} = useSelector((state)=>state.loginUser)
     const navigator=useNavigate();
     useEffect(() => {
       if(!localStorage.getItem("UserToken")){
@@ -28,7 +28,7 @@ function Products() {
       const queryParams = new URLSearchParams(queryString);
       const catagory = queryParams.get('catagory');
       dispatch(getProduct("",catagory));
-    }, [dispatch]);
+    }, [dispatch,error,location.search,navigator]);
     
     const [Click, setClick] = useState(window.screen.width>600);
     const submitHandler=()=>{

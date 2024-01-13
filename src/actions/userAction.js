@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 export const userLogin=(GivenData)=>async(dispatch)=>{
     try {
         dispatch({type:LOGIN_USER_REQUEST})
-        const port="http://localhost:80";
+        // const port="http://localhost:80";
         const config={
             headers:{"Content-Type": "application/json"},
             withCredentials: true,
@@ -21,7 +21,7 @@ export const userLogin=(GivenData)=>async(dispatch)=>{
 }
 export const loadUser=()=>async(dispatch)=>{
     try {
-        const port="http://localhost:80";
+        // const port="http://localhost:80";
         dispatch({type:LOAD_USER_REQUEST})
         const {data} = await axios.get(`/api/me`);
         dispatch({type:LOAD_USER_SUCCESS,payload:data})
@@ -33,7 +33,7 @@ export const loadUser=()=>async(dispatch)=>{
 
 export const logout=()=>async(dispatch)=>{
     try {
-        const port="http://localhost:80";
+        // const port="http://localhost:80";
         const {data}=await axios.post(`/api/logout`);
         console.log(data)
         localStorage.removeItem("UserToken")

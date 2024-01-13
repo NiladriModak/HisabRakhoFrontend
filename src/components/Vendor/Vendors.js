@@ -6,18 +6,18 @@ import { AllVendor, clearError } from '../../actions/productActions';
 import Sidebar from '../user/Sidebar';
 import VendorBox from './VendorBox';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { useAlert } from 'react-alert';
-import  { toast,Toaster } from 'react-hot-toast';
+// import { useAlert } from 'react-alert';
+import  { toast } from 'react-hot-toast';
 function Vendors() {
     const [Click, setClick] = useState(window.screen.width>600);
     const submitHandler=()=>{
         setClick(!Click)
     }
-    const {vendor,loading,error} =useSelector((state)=>state.vendor)
+    const {vendor,error} =useSelector((state)=>state.vendor)
 
     const dispatch=useDispatch();
     const location = useLocation();
-    const alert=useAlert();
+    // const alert=useAlert();
     const navigator=useNavigate();
     useEffect(() => {
       if(!localStorage.getItem("UserToken")){
@@ -31,7 +31,7 @@ function Vendors() {
       const queryParams = new URLSearchParams(queryString);
       const vendorName = queryParams.get('vendorName');
       dispatch(AllVendor(vendorName))
-    }, [dispatch,toast])
+    }, [dispatch,location.search,navigator,error])
     
   return (
     <div className='FullContainer'>

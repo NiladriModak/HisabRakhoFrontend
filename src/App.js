@@ -1,31 +1,31 @@
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import Header from './components/layout/Header';
-import Sidebar from './components/user/Sidebar';
-import { BrowserRouter as Router,Route,Routes, useLocation, useNavigate, Navigate} from "react-router-dom";
+// import Sidebar from './components/user/Sidebar';
+import { BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import Products from './components/Products';
 import ProductDetails from './components/ProductDetails';
 import Catagories from './components/Catagories';
-import CatagoryBox from './components/CatagoryBox';
+// import CatagoryBox from './components/CatagoryBox';
 import Dashboard from './components/Dashboard/Dashboard';
 import Vendors from './components/Vendor/Vendors';
 import VendorDetails from './components/Vendor/VendorDetails';
 import { Toaster } from 'react-hot-toast';
 import Login from './components/Login/Login';
 import SignUp from './components/Login/SignUp';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { loadUser } from './actions/userAction';
 import {store} from "./store"
 import React from 'react';
 import ProtectedRoute from './Route/ProtectedRoute';
 import Home from './components/Home/Home';
-import Loading from './components/layout/Loading';
+// import Loading from './components/layout/Loading';
 import MakeBill from './components/MakeBill/MakeBill';
 import ForgetPassword from './components/Login/ForgetPassword';
 import ResetPassword from './components/Login/ResetPassword';
 
 function App() {
-  const { isAuthenticated, user } = useSelector((state) => state.loginUser);
+  // const { isAuthenticated, user } = useSelector((state) => state.loginUser);
 
   React.useEffect(() => {
     store.dispatch(loadUser());

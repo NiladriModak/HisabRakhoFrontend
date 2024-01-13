@@ -10,7 +10,7 @@ function Catagories() {
     const submitHandler=()=>{
         setClick(!Click)
     }
-    const {catagory,loading,error} =useSelector((state)=>state.catagory)
+    const {catagory} =useSelector((state)=>state.catagory)
     const dispatch=useDispatch();
 
     useEffect(() => {

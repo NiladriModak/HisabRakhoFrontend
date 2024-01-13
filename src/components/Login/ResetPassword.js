@@ -41,12 +41,12 @@ function ResetPassword() {
 
       navigator("/login");
     }
-  }, [dispatch,  toast, navigator, success]);
+  }, [dispatch, navigator, success,alert,error]);
   return (
     <Fragment>
-      {/* {loading ? (
+      {loading ? (
         <Loading />
-      ) : ( */}
+      ) : (
         <Fragment>
           {/* <MetaData title="Change Password" /> */}
           <div className="resetPasswordContainer">
@@ -86,8 +86,8 @@ function ResetPassword() {
             </div>
           </div>
         </Fragment>
-      {/* ) */}
-      {/* } */}
+      ) 
+      }
     </Fragment>
   )
 }

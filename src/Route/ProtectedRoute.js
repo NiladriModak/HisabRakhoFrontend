@@ -6,7 +6,7 @@ import Loading from '../components/layout/Loading';
 
 
 const ProtectedRoute = () => {
-  const { isAuthenticated, loading } = useSelector((state) => state.loginUser);
+  const {  loading } = useSelector((state) => state.loginUser);
 
   if (loading) {
     return <Loading />;
