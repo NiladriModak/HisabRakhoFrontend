@@ -73,9 +73,11 @@ function ProductDetails() {
     myForm.set("productId", params.id);
 
     dispatch(AddStock(myForm,params.id))
+
     setOpen(false);
+
     dispatch(getSingleProductDetails(params.id))
-    // window.location.reload();//to reload window
+    handleCloseAddDialog();
   }
 
   //Substract Stock handler
@@ -125,7 +127,7 @@ function ProductDetails() {
     myForm.set("price",ProductPrice||product.product?.price);
     dispatch(editProduct(myForm,params.id))
     dispatch(getSingleProductDetails(params.id))
-    window.location.reload();
+    handleCloseEdit();
   }
   // const navigator = useNavigate();
 
