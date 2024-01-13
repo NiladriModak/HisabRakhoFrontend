@@ -95,7 +95,7 @@ function ProductDetails() {
 
     dispatch(EmptyStock(myForm,params.id))
     setOpen(false);
-    window.location.reload();//to reload window
+    dispatch(getSingleProductDetails(params.id))
   }
 
   //Filter from state
@@ -122,7 +122,7 @@ function ProductDetails() {
     myForm.set("catagory",ProductCatagory||product.product?.catagory);
     myForm.set("price",ProductPrice||product.product?.price);
     dispatch(editProduct(myForm,params.id))
-    window.location.reload();
+    dispatch(getSingleProductDetails(params.id))
   }
   // const navigator = useNavigate();
 
