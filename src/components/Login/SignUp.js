@@ -20,7 +20,7 @@ function SignUp() {
     if(isAuthenticated){
       navigate("/allProduct")
     }
-    console.log("from signup.js auth = ",isAuthenticated)
+    // console.log("from signup.js auth = ",isAuthenticated)
   }, [dispatch,toast,error,isAuthenticated,navigate])
   const [name, setName] = useState('')
   const [username, setUsername] = useState('')

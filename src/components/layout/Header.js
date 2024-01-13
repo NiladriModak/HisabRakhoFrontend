@@ -87,7 +87,7 @@ function Header() {
   const { error: createerror } = useSelector(state => state.createProduct);
   const createProductHandler=()=>{
     const myForm=new FormData();
-    console.log("name",VendorName,"name",ProductCatagory,"name",ProductName,"name",ProductPrice,"name",ProductQuantity)
+    // console.log("name",VendorName,"name",ProductCatagory,"name",ProductName,"name",ProductPrice,"name",ProductQuantity)
     if(VendorName!==""&&ProductName!==""&&ProductCatagory!==""&&ProductPrice!==0&&ProductQuantity!==0){
       myForm.set("vendorName",VendorName);
       myForm.set("name",ProductName);

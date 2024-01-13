@@ -17,7 +17,7 @@ export const getProduct=(keyword = "",category)=>async(dispatch)=>{
             link = `/api/allProducts?keyword=${keyword}&&catagory=${category}`;
         }
         const {data} = await axios.get(link,config);
-        console.log("The all product user action  - ",data)
+        // console.log("The all product user action  - ",data)
         dispatch({type:ALL_PRODUCT_SUCCESS,payload:data});
     }catch(error){
         dispatch({type:ALL_PRODUCT_FAIL,payload:error.response.data.message,})

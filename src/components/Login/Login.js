@@ -22,11 +22,11 @@ function Login() {
     if(localStorage.getItem("UserToken") && isAuthenticated){
       navigate("/allProduct")
     }
-    console.log("from login.js auth = ",isAuthenticated)
+    // console.log("from login.js auth = ",isAuthenticated)
   }, [dispatch,toast,error,isAuthenticated,navigate])
   const submitHandler=(event)=>{
     const myForm = new FormData();
-    console.log(username,password)
+    // console.log(username,password)
     myForm.set("email",username);
     myForm.set("password",password);
     dispatch(userLogin(myForm));

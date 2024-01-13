@@ -11,7 +11,7 @@ export const userLogin=(GivenData)=>async(dispatch)=>{
             withCredentials: true,
         }
         const {data} = await axios.post(`/api/login`,GivenData,config);
-        console.log(data)
+        // console.log(data)
         localStorage.setItem("UserToken",data.token)
         localStorage.setItem("UserName",data.user.name)
         dispatch({type:LOGIN_USER_SUCCESS,payload:data})
@@ -35,7 +35,7 @@ export const logout=()=>async(dispatch)=>{
     try {
         // const port="http://localhost:80";
         const {data}=await axios.post(`/api/logout`);
-        console.log(data)
+        // console.log(data)
         localStorage.removeItem("UserToken")
         localStorage.removeItem("UserName")
         dispatch({type:LOGOUT_USER_SUCCESS})
@@ -56,7 +56,7 @@ export const register = (userData) => async (dispatch) => {
     }
   
     const { data } = await axios.post(`/api/register`, userData, config);
-    console.log(data)
+    // console.log(data)
     localStorage.setItem("UserToken",data.token)
     localStorage.setItem("UserName",data.user.name)
       dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });
@@ -77,9 +77,9 @@ export const register = (userData) => async (dispatch) => {
         headers:{"Content-Type": "application/json"},
         withCredentials: true,
     }
-    console.log("elo")
+    // console.log("elo")
     const { data } = await axios.post(`/api/password/forgot`,{email},config);
-    console.log(data)
+    // console.log(data)
 
 
       dispatch({ type: FORGET_PASSWORD_SUCCESS, payload: data });

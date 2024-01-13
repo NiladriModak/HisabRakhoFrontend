@@ -10,7 +10,7 @@ function ForgetPassword() {
   
   
   const submiHandler=()=>{
-    console.log("email =",email)
+    // console.log("email =",email)
     dispatch(forgetPassword(email));
     
   }
