@@ -48,9 +48,10 @@ export const AddStock=(GivenData,id)=>async(dispatch)=>{
         const port="http://localhost:80";
         dispatch({type: ADD_REQUEST});
 
-        const config = {
-            headers: { "Content-Type": "application/json" },
-        };
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         const {data} = await axios.put(`/api/product/${id}/AddStock`,GivenData,config)
 
         dispatch({type:ADD_SUCCESS,payload:data});
@@ -65,9 +66,10 @@ export const EmptyStock=(GivenData,id)=>async(dispatch)=>{
         const port="http://localhost:80";
         dispatch({type: EMPTY_REQUEST});
 
-        const config = {
-            headers: { "Content-Type": "application/json" },
-        };
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         const {data} = await axios.put(`/api/product/${id}/EmptyStock`,GivenData,config)
 
         dispatch({type:EMPTY_SUCCESS,payload:data});
@@ -106,7 +108,11 @@ export const getLargestSoldProduct=()=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type: LARGEST_SOLD_REQUEST});
-        const {data} = await axios.get(`/api/largestSalingProduct`)
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+        const {data} = await axios.get(`/api/largestSalingProduct`,config)
 
         dispatch({type:LARGEST_SOLD_SUCCESS,payload:data})
     } catch (error) {
@@ -144,7 +150,11 @@ export const getSingleVendor=(id)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type:SINGLE_VENDOR_REQUEST})
-        const {data} = await axios.get(`/api/allVendor/${id}`)
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+        const {data} = await axios.get(`/api/allVendor/${id}`,config)
         dispatch({type:SINGLE_VENDOR_SUCCESS,payload:data.vendor})
     } catch (error) {
         dispatch({type:SINGLE_VENDOR_FAIL,payload:error.response.data.message})
@@ -155,9 +165,10 @@ export const UpdatePayments=(id,GivenData)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type:SINGLE_VENDOR_REQUEST})
-        const config = {
-            headers: { "Content-Type": "application/json" },
-        };
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         const {data} = await axios.put(`/api/allVendor/${id}/updatePayment`,GivenData,config)
         dispatch({type:SINGLE_VENDOR_SUCCESS,payload:data.vendor})
     } catch (error) {
@@ -169,9 +180,10 @@ export const createProduct=(GivenData)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type:CREATE_PRODUCT_REQUEST});
-        const config = {
-            headers: { "Content-Type": "application/json" },
-        };
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         const {data} = await axios.post(`/api/create`,GivenData,config)
 
         dispatch({type:CREATE_PRODUCT_SUCCESS,payload:data.product}) 
@@ -186,9 +198,10 @@ export const editProduct=(GivenData,id)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
         dispatch({type:EDIT_PRODUCT_REQUEST});
-        const config = {
-            headers: { "Content-Type": "application/json" },
-        };
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
         const {data} = await axios.put(`/api/product/${id}`,GivenData,config)
 
         dispatch({type:EDIT_PRODUCT_SUCCESS,payload:data.product}) 
