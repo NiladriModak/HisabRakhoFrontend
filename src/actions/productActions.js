@@ -5,7 +5,9 @@ export const getProduct=(keyword = "",category)=>async(dispatch)=>{
         const port="http://localhost:80";
         dispatch({type: ALL_PRODUCT_REQUEST});
         const config={
-            headers:{"Content-Type": "application/json"},
+            headers:{"Content-Type": "application/json",
+            "cookies":localStorage.getItem("UserToken")
+            },
             withCredentials: true,
         }
         let link = `/api/allProducts?keyword=${keyword}`;
@@ -79,7 +81,9 @@ export const AllCatagory=(keyword="")=>async(dispatch)=>{
         dispatch({type: ALL_CATAGORY_REQUEST});
 
         const config={
-            headers:{"Content-Type": "application/json"},
+            headers:{"Content-Type": "application/json",
+                    "cookies":localStorage.getItem("UserToken")
+            },
             withCredentials: true,
         }
 
@@ -116,7 +120,9 @@ export const AllVendor=(vendorName)=>async(dispatch)=>{
         dispatch({type: ALL_VENDOR_REQUEST});
 
         const config={
-            headers:{"Content-Type": "application/json"},
+            headers:{"Content-Type": "application/json",
+            "cookies":localStorage.getItem("UserToken")
+        },
             withCredentials: true,
         }
 
