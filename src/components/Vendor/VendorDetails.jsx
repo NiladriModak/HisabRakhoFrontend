@@ -55,7 +55,7 @@ function VendorDetails() {
     
 
 
-    const handlePayStock= ()=>{
+    const handlePayStock= async()=>{
         const myForm = new FormData();
         if(!addPaid){
           toast.error("Enter something")
@@ -67,7 +67,7 @@ function VendorDetails() {
         }
         myForm.set("paid", Number(addPaid));
 
-        dispatch(UpdatePayments(params.id,myForm))
+        await dispatch(UpdatePayments(params.id,myForm))
         setOpenPayDialog(false);
         window.location.reload();//to reload window
       }
