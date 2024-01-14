@@ -85,7 +85,7 @@ function Header() {
 
 
   const { error: createerror } = useSelector(state => state.createProduct);
-  const createProductHandler=()=>{
+  const createProductHandler=async ()=>{
     const myForm=new FormData();
     // console.log("name",VendorName,"name",ProductCatagory,"name",ProductName,"name",ProductPrice,"name",ProductQuantity)
     if(VendorName!==""&&ProductName!==""&&ProductCatagory!==""&&ProductPrice!==0&&ProductQuantity!==0){
@@ -94,7 +94,7 @@ function Header() {
       myForm.set("catagory",ProductCatagory);
       myForm.set("quantity",ProductQuantity);
       myForm.set("price",ProductPrice);
-      dispatch(createProduct(myForm))
+      await dispatch(createProduct(myForm))
       if(!createerror)
       toast.success("Product Created Successfully")
       setonclick(false)

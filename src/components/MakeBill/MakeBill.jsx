@@ -89,11 +89,24 @@ function MakeBill() {
 
   //pdf
   const generatePdf = () => {
-    html2canvas(pdfContentRef.current).then((canvas) => {
+    const pdfContent = pdfContentRef.current;
+  
+    // Get the dimensions of the content
+    const contentWidth = pdfContent.offsetWidth;
+    const contentHeight = pdfContent.offsetHeight;
+  
+    // Create a new jsPDF instance with the content dimensions
+    const pdf = new jsPDF('p', 'pt', [contentWidth, contentHeight]);
+  
+    // Convert the content to an image
+    html2canvas(pdfContent).then((canvas) => {
       const imgData = canvas.toDataURL('image/png');
-      const pdf = new jsPDF();
-      pdf.addImage(imgData, 'PNG', 0, 0);
-      pdf.save("bill.pdf");
+  
+      // Add the image to the PDF
+      pdf.addImage(imgData, 'PNG', 0, 0, contentWidth, contentHeight);
+  
+      // Save the PDF
+      pdf.save('bill.pdf');
     });
   };
 
@@ -188,10 +201,10 @@ function MakeBill() {
       <div>
         {generatePdfContent()}
 
-        <button onClick={generatePdf}>Download PDF</button>
+        <button className='pdfBtn' onClick={generatePdf}>Download PDF</button>
       </div>
       <div>
-        <button onClick={resetHandler}>Reset Bill</button>
+        <button className='resetBtn' onClick={resetHandler}>Reset Bill</button>
       </div>
     </div>
   );

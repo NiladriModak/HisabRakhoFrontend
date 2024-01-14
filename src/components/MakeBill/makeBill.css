@@ -27,3 +27,6 @@
 .Autocomplete::-webkit-scrollbar {
     width: 1px; /* Adjust the width as needed */
 }
+.pdfBtn{
+    margin: 2vmax;
+}
