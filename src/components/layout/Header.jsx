@@ -145,7 +145,7 @@ function Header() {
                       style={{"width":"28vmax"}}
                       onChange={(event, newValue) => setVendorName(newValue)}
                       options={vendor&&vendor.map((option) => option.vendorName)}
-                      renderInput={(params) => <TextField {...params} onChange={(e) => setVendorName(e.target.value)}/>}
+                      renderInput={(params) => <TextField style={{"textAlign":"center"}} {...params} onChange={(e) => setVendorName(e.target.value)}/>}
 
                     />
                     <DialogContentText>
@@ -183,7 +183,7 @@ function Header() {
                       value={ProductCatagory}
                       onChange={(event, newValue) => setProductCatagory(newValue)}
                       options={catagory&&catagory.map((option) => option)}
-                      renderInput={(params) => <TextField {...params}  onInput={(e)=>setProductCatagory(e.target.value)}/>}
+                      renderInput={(params) => <TextField style={{"textAlign":"center"}} {...params}  onInput={(e)=>setProductCatagory(e.target.value)}/>}
 
                     />
                     
