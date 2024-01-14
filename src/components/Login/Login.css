@@ -48,7 +48,7 @@
         flex-direction: column;
     }
     .MainContainer>div{
-        width: 100%;
+        width: 85%;
         border-right: none;
     }
     .secDiv{
