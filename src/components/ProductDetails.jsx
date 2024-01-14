@@ -22,6 +22,7 @@ function ProductDetails() {
   const [openAddDialog, setOpenAddDialog] = React.useState(false);
   const [openRecordDialog, setOpenRecordDialog] = React.useState(false);
   const [addProduct,setaddProduct] =useState(0);
+  const [addProductAmt,setaddProductAmt] =useState(0);
   const [substractProduct,setsubstractProduct] =useState(0);
   // const [record,setRecord] = useState([]);
   // const[VendorName,setVendorName]=useState("");
@@ -69,6 +70,7 @@ function ProductDetails() {
     }
     
     myForm.set("addProduct", Number(addProduct));
+    myForm.set("amount",Number(addProductAmt));
 
     myForm.set("productId", params.id);
 
@@ -206,6 +208,18 @@ function ProductDetails() {
                       type="Number"
                       variant="standard"
                       onChange={(e) => setaddProduct(e.target.value>=0?Number(e.target.value):0)}
+                      min={0}
+                    />
+
+                    <input
+                      className='DialogInputFeild'
+                      autoFocus
+                      margin="dense"
+                      id="addProductAmt"
+                      label="Add"
+                      type="Number"
+                      variant="standard"
+                      onChange={(e) => setaddProductAmt(e.target.value>=0?Number(e.target.value):0)}
                       min={0}
                     />
                     
