@@ -210,7 +210,9 @@ function ProductDetails() {
                       onChange={(e) => setaddProduct(e.target.value>=0?Number(e.target.value):0)}
                       min={0}
                     />
-
+                    <DialogContentText>
+                      Please Enter The Price Of Product To Be Added 
+                    </DialogContentText>
                     <input
                       className='DialogInputFeild'
                       autoFocus
