@@ -180,8 +180,8 @@ function ProductDetails() {
             <h3>{product.product?.quantity}</h3>
           </div>
           <div>
-            <h1>Weight:</h1>
-            <h3>{product.product?.weight}</h3>
+            <h1>Vendor Name:</h1>
+            <h3>{product.product?.vendorName}</h3>
           </div>
           <div>
             <h1>Price:</h1> 
@@ -221,7 +221,7 @@ function ProductDetails() {
                       label="Add"
                       type="Number"
                       variant="standard"
-                      onChange={(e) => setaddProductAmt(e.target.value>=0?Number(e.target.value):0)}
+                      onChange={(e) => setaddProductAmt(e.target.value>0?Number(e.target.value):0)}
                       min={0}
                     />
                     

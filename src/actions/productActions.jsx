@@ -177,6 +177,21 @@ export const UpdatePayments=(id,GivenData)=>async(dispatch)=>{
     }
 }
 
+export const PrevPayments=(id,GivenData)=>async(dispatch)=>{
+    try {
+        const port="http://localhost:80";
+        dispatch({type:SINGLE_VENDOR_REQUEST})
+        const config={
+            headers:{"Content-Type": "application/json"},
+            withCredentials: true,
+        }
+        const {data} = await axios.put(`/api/allVendor/${id}/prevPayment`,GivenData,config)
+        dispatch({type:SINGLE_VENDOR_SUCCESS,payload:data.vendor})
+    } catch (error) {
+        dispatch({type:SINGLE_VENDOR_FAIL,payload:error.response.data.message})
+    }
+}
+
 export const createProduct=(GivenData)=>async(dispatch)=>{
     try {
         const port="http://localhost:80";
