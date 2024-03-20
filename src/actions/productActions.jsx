@@ -151,7 +151,7 @@ export const AllCatagory =
       };
 
       const { data } = await axios.get(`/api/allCatagory`, config);
-
+      console.log("all Catagory ", data);
       let tobesend = data.p;
 
       const filteredCategories = tobesend.filter((category) =>
