@@ -66,6 +66,7 @@ export const getProduct =
 
 export const getSingleProductDetails = (id) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: SINGLE_PRODUCT_REQUEST });
     const config = {
@@ -88,6 +89,7 @@ export const getSingleProductDetails = (id) => async (dispatch) => {
 
 export const AddStock = (GivenData, id) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: ADD_REQUEST });
 
@@ -112,6 +114,7 @@ export const AddStock = (GivenData, id) => async (dispatch) => {
 
 export const EmptyStock = (GivenData, id) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: EMPTY_REQUEST });
 
@@ -168,6 +171,7 @@ export const AllCatagory =
   };
 export const getLargestSoldProduct = () => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: LARGEST_SOLD_REQUEST });
     const config = {
@@ -187,6 +191,7 @@ export const getLargestSoldProduct = () => async (dispatch) => {
 
 export const AllVendor = (vendorName) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: ALL_VENDOR_REQUEST });
 
@@ -213,6 +218,7 @@ export const AllVendor = (vendorName) => async (dispatch) => {
 
 export const getSingleVendor = (id) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: SINGLE_VENDOR_REQUEST });
     const config = {
@@ -234,6 +240,7 @@ export const getSingleVendor = (id) => async (dispatch) => {
 
 export const UpdatePayments = (id, GivenData) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: SINGLE_VENDOR_REQUEST });
     const config = {
@@ -259,6 +266,7 @@ export const UpdatePayments = (id, GivenData) => async (dispatch) => {
 
 export const PrevPayments = (id, GivenData) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: SINGLE_VENDOR_REQUEST });
     const config = {
@@ -284,6 +292,7 @@ export const PrevPayments = (id, GivenData) => async (dispatch) => {
 
 export const createProduct = (GivenData) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: CREATE_PRODUCT_REQUEST });
     const config = {
@@ -306,6 +315,7 @@ export const createProduct = (GivenData) => async (dispatch) => {
 
 export const editProduct = (GivenData, id) => async (dispatch) => {
   try {
+    const usertoken = localStorage.getItem("UserToken");
     const port = "http://localhost:80";
     dispatch({ type: EDIT_PRODUCT_REQUEST });
     const config = {
