@@ -138,13 +138,13 @@ export const AllCatagory =
   (keyword = "") =>
   async (dispatch) => {
     try {
+      const usertoken = localStorage.getItem("UserToken");
       const port = "http://localhost:80";
       dispatch({ type: ALL_CATAGORY_REQUEST });
 
       const config = {
         headers: {
           "Content-Type": "application/json",
-          // 'Cookie': `token=${localStorage.getItem("UserToken")}`
           Authorization: `Bearer ${usertoken}`,
         },
         withCredentials: true,
@@ -162,11 +162,10 @@ export const AllCatagory =
     } catch (error) {
       dispatch({
         type: ALL_CATAGORY_FAIL,
-        payload: error.response.data.message,
+        payload: error.response ? error.response.data.message : "Unknown error",
       });
     }
   };
-
 export const getLargestSoldProduct = () => async (dispatch) => {
   try {
     const port = "http://localhost:80";
