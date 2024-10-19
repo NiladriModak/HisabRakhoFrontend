@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { PrevPayments, UpdatePayments, getSingleVendor } from "../../actions/productActions";
+import {
+  PrevPayments,
+  UpdatePayments,
+  getSingleVendor,
+} from "../../actions/productActions";
 import { useParams } from "react-router-dom";
 // import img11 from "../../img11";
 import "./VendorDetails.css";
@@ -14,6 +18,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
 import { toast } from "react-hot-toast";
 import { clearError } from "../../actions/userAction";
+import Loading from "../layout/Loading";
+import ShortCut from "../layout/ShortCut";
 function VendorDetails() {
   const [addPaid, setaddPaid] = useState(0);
   const [Click, setClick] = useState(window.screen.width > 600);
@@ -51,7 +57,9 @@ function VendorDetails() {
 
   const dispatch = useDispatch();
   const params = useParams();
-  const { vendor, error } = useSelector((state) => state.vendorDetails);
+  const { vendor, error, loading } = useSelector(
+    (state) => state.vendorDetails
+  );
 
   useEffect(() => {
     if (!localStorage.getItem("UserToken")) {
@@ -81,7 +89,6 @@ function VendorDetails() {
     window.location.reload(); //to reload window
   };
 
-
   const handlePrevStock = async () => {
     const myForm = new FormData();
     if (!addprev) {
@@ -96,108 +103,133 @@ function VendorDetails() {
   };
 
   return (
-    <div className="FullContainer">
-      <ViewHeadlineIcon fontSize="large" onClick={submitHandler} />
-      {Click && <Sidebar />}
-      <div>
-        <div>
-          <h2>Vendor's Name</h2>
-          <p>{vendor.vendorName}</p>
-        </div>
-        <div>
-          <h2>Vendor's Id</h2>
-          <p>{vendor._id}</p>
-        </div>
-        <div>
-          <h2>Vendor's Due Amount</h2>
-          <p>{vendor.DueAmt}</p>
-        </div>
-        <div>
-          <h2>Payment Details</h2>
-          <button onClick={handleClickOpenRecordDialog}>
-            Payment History Of {vendor.vendorName}
-          </button>
-          <Dialog open={openRecordDialog} onClose={handleCloseReocordDialog}>
-            <DialogTitle>Payment Details:-{vendor.vendorName}</DialogTitle>
-            <DialogContent>
-              {vendor &&
-                vendor.Record &&
-                vendor.Record.map((item) => (
-                  <h3>
-                    {item[0]} Date on {item[1].substr(8, 2)}/
-                    {item[1].substr(5, 2)}/{item[1].substr(0, 4)}
-                  </h3>
-                ))}
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleCloseReocordDialog}>Cancel</Button>
-              {/* <Button onClick={handlePayStock}>Pay</Button> */}
-            </DialogActions>
-          </Dialog>
-        </div>
-        <div>
-          <h2>Make Payment</h2>
-          <button onClick={handleClickOpenPayDialog}>
-            Pay {vendor.vendorName}
-          </button>
-          <Dialog open={openPayDialog} onClose={handleClosePayDialog}>
-            <DialogTitle>Pay {vendor.vendorName}</DialogTitle>
-            <DialogContent>
-              <DialogContentText>Enter the amount tp be paid</DialogContentText>
-              <input
-                className="DialogInputFeild"
-                autoFocus
-                margin="dense"
-                id="paid"
-                label="paid"
-                type="Number"
-                variant="standard"
-                onChange={(e) =>
-                  setaddPaid(e.target.value >= 0 ? Number(e.target.value) : 0)
-                }
-                min={0}
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClosePayDialog}>Cancel</Button>
-              <Button onClick={handlePayStock}>Pay</Button>
-            </DialogActions>
-          </Dialog>
-        </div>
-        <div>
-          <h2>Add Previous Due</h2>
-          <button onClick={handleClickOpenPrevDialog}>
-            Update Previous Due {vendor.vendorName}
-          </button>
-          <Dialog open={openPrevDialog} onClose={handleClosePrevDialog}>
-            <DialogTitle>Previous due of {vendor.vendorName}</DialogTitle>
-            <DialogContent>
-              <DialogContentText>Enter the amount</DialogContentText>
-              <input
-                className="DialogInputFeild"
-                autoFocus
-                margin="dense"
-                id="paid"
-                label="paid"
-                type="Number"
-                variant="standard"
-                onChange={(e) =>
-                  setaddprev(e.target.value >= 0 ? Number(e.target.value) : 0)
-                }
-                min={0}
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button onClick={handleClosePrevDialog}>Cancel</Button>
-              <Button onClick={handlePrevStock}>Update</Button>
-            </DialogActions>
-          </Dialog>
-        </div>
-      </div>
-      <div>
-        <img src="/img11" alt="hi" style={{ width: "25vmax" }} />
-      </div>
-    </div>
+    <>
+      {loading ? (
+        <Loading />
+      ) : (
+        <ShortCut>
+          <div className="FullContainer">
+            <div
+              style={{
+                width: "50%",
+                display: "flex",
+                justifyContent: "center",
+                flexDirection: "column",
+                margin: "auto",
+              }}
+            >
+              <div>
+                <h2>Vendor's Name</h2>
+                <p>{vendor.vendorName}</p>
+              </div>
+              <div>
+                <h2>Vendor's Id</h2>
+                <p>{vendor._id}</p>
+              </div>
+              <div>
+                <h2>Vendor's Due Amount</h2>
+                <p>{vendor.DueAmt}</p>
+              </div>
+              <div>
+                <h2>Payment Details</h2>
+                <button onClick={handleClickOpenRecordDialog}>
+                  Payment History Of {vendor.vendorName}
+                </button>
+                <Dialog
+                  open={openRecordDialog}
+                  onClose={handleCloseReocordDialog}
+                >
+                  <DialogTitle>
+                    Payment Details:-{vendor.vendorName}
+                  </DialogTitle>
+                  <DialogContent>
+                    {vendor &&
+                      vendor.Record &&
+                      vendor.Record.map((item) => (
+                        <h3>
+                          {item[0]} Date on {item[1].substr(8, 2)}/
+                          {item[1].substr(5, 2)}/{item[1].substr(0, 4)}
+                        </h3>
+                      ))}
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleCloseReocordDialog}>Cancel</Button>
+                    {/* <Button onClick={handlePayStock}>Pay</Button> */}
+                  </DialogActions>
+                </Dialog>
+              </div>
+              <div>
+                <h2>Make Payment</h2>
+                <button onClick={handleClickOpenPayDialog}>
+                  Pay {vendor.vendorName}
+                </button>
+                <Dialog open={openPayDialog} onClose={handleClosePayDialog}>
+                  <DialogTitle>Pay {vendor.vendorName}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>
+                      Enter the amount tp be paid
+                    </DialogContentText>
+                    <input
+                      className="DialogInputFeild"
+                      autoFocus
+                      margin="dense"
+                      id="paid"
+                      label="paid"
+                      type="Number"
+                      variant="standard"
+                      onChange={(e) =>
+                        setaddPaid(
+                          e.target.value >= 0 ? Number(e.target.value) : 0
+                        )
+                      }
+                      min={0}
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClosePayDialog}>Cancel</Button>
+                    <Button onClick={handlePayStock}>Pay</Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
+              <div>
+                <h2>Add Previous Due</h2>
+                <button onClick={handleClickOpenPrevDialog}>
+                  Update Previous Due {vendor.vendorName}
+                </button>
+                <Dialog open={openPrevDialog} onClose={handleClosePrevDialog}>
+                  <DialogTitle>Previous due of {vendor.vendorName}</DialogTitle>
+                  <DialogContent>
+                    <DialogContentText>Enter the amount</DialogContentText>
+                    <input
+                      className="DialogInputFeild"
+                      autoFocus
+                      margin="dense"
+                      id="paid"
+                      label="paid"
+                      type="Number"
+                      variant="standard"
+                      onChange={(e) =>
+                        setaddprev(
+                          e.target.value >= 0 ? Number(e.target.value) : 0
+                        )
+                      }
+                      min={0}
+                    />
+                  </DialogContent>
+                  <DialogActions>
+                    <Button onClick={handleClosePrevDialog}>Cancel</Button>
+                    <Button onClick={handlePrevStock}>Update</Button>
+                  </DialogActions>
+                </Dialog>
+              </div>
+            </div>
+            <div>
+              <img src="/img11" alt="hi" style={{ width: "25vmax" }} />
+            </div>
+          </div>
+        </ShortCut>
+      )}
+    </>
   );
 }
 

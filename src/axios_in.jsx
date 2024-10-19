@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 const instance = axios.create({
-    baseURL: "https://hisabrakhobackend.onrender.com"
-    // baseURL:"http://localhost:80"
-  });
-  
-  export default instance;
+  baseURL: "https://hisabrakhobackend.onrender.com",
+  // baseURL: "http://localhost:80",
+});
+
+export default instance;

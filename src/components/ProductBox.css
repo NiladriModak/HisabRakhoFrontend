@@ -1,58 +1,58 @@
-.ProductBoxContainer{
-    display: flex;
-    max-width:100%;
-    border: 2px solid rgb(148, 233, 236);
-    padding: 2vmax;
-    margin: 1vmax;
-    background-color: rgb(210, 253, 253);
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    cursor: pointer;
-    transition: all 0.5s;
-    text-decoration: none;
-    color: black;
+.ProductBoxContainer {
+  display: flex;
+  height: 4vmax;
+  max-width: 100%;
+  border: 2px solid rgb(190, 252, 251);
+  /* padding: 0vmax; */
+  /* margin: 1vmax; */
+  background-color: rgb(198, 255, 250);
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  cursor: pointer;
+  transition: all 0.5s;
+  text-decoration: none;
+  color: black;
 }
-.ProductBoxContainer:hover{
-    background-color: rgba(152, 233, 233, 0.747);
+.ProductBoxContainer:hover {
+  background-color: rgba(129, 242, 248, 0.788);
 }
-.Nameofproduct{
-    display: flex;
-    justify-content: center;
-    width: 25%;
-    flex-wrap: wrap;
+.Nameofproduct {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  flex-wrap: wrap;
 }
-.DetailsOfProduct{
-    display: flex;
-    justify-content: center;
-    width: 25%;
-    flex-wrap: wrap;
-    
+.DetailsOfProduct {
+  display: flex;
+  justify-content: center;
+  width: 25%;
+  flex-wrap: wrap;
 }
 
-.PriceOfProduct{
-    display: flex;
-    justify-content: center;
-    width: 25%;
+.PriceOfProduct {
+  display: flex;
+  justify-content: center;
+  width: 25%;
 }
-.QuantityOfProduct{
-    display: flex;
-    justify-content: center;
-    width: 25%;
+.QuantityOfProduct {
+  display: flex;
+  justify-content: center;
+  width: 25%;
 }
-@media screen and (max-width: 600px) {
-    .ProductBoxContainer{
-        display: flex;
-        flex-direction: column;
-        max-width:100%;
-        border: 2px solid rgb(148, 233, 236);
-        padding: 2vmax;
-        
-    }
-    .Nameofproduct{
-        max-width: 100%;
-    }
-    .DetailsOfProduct{
-        max-width: 100%;
-    }
+@media screen and (max-width: 1000px) {
+  .ProductBoxContainer {
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    border: 2px solid rgb(0, 0, 0);
+    height: 6vmax;
+    /* padding: 2vmax; */
+  }
+  .Nameofproduct {
+    max-width: 100%;
+  }
+  .DetailsOfProduct {
+    max-width: 100%;
+  }
 }

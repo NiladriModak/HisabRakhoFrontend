@@ -1,51 +1,51 @@
-.Container{
+.Container {
+  display: flex;
+  margin: 1vmax;
+}
+.Box {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+  margin: 1vmax;
+  flex-wrap: wrap;
+}
+.Details {
+  font-family: "Times New Roman", Times, serif;
+  font-size: 1rem;
+}
+.Details > div > h3 {
+  color: rgb(56, 23, 23);
+}
+.Options {
+  margin: 1.2vmax;
+  margin-left: 10vmax;
+}
+.Options > div > button {
+  padding: 0.8vmax;
+  font-size: 1rem;
+  width: 22vmax;
+  border-radius: 3px;
+  margin: 2vmax;
+  background-color: rgb(59, 180, 236);
+  border: 3px solid rgb(11, 73, 143);
+  cursor: pointer;
+  color: rgb(11, 73, 143);
+  font-weight: 600;
+  transition: all 0.5s;
+}
+.Options > div > button:hover {
+  background-color: rgb(158, 239, 253);
+}
+.DialogInputFeild {
+  height: 4vmax;
+  text-align: center;
+  font-size: large;
+  width: 100%;
+}
+@media screen and (max-width: 600px) {
+  .Container {
     display: flex;
-    margin: 1vmax;
-}
-.Box{
-    display: flex;
-    
-    justify-content: center;
-    align-items: center;
-    margin: 1vmax;
-    flex-wrap: wrap;
-}
-.Details{
-    font-family: 'Times New Roman', Times, serif;
-    font-size: 1rem;
-}
-.Details>div>h3{
-    color: rgb(56, 23, 23);
-}
-.Options{
-    margin: 1.2vmax;
-    margin-left: 10vmax;
-}
-.Options > div > button{
-    padding: 0.8vmax;
-    font-size: 1rem;
-    width: 22vmax;
-    border-radius: 3px;
-    margin: 2vmax;
-    background-color: rgb(59, 180, 236);
-    border: 3px solid rgb(11, 73, 143);
-    cursor: pointer;
-    color: rgb(11, 73, 143);
-    font-weight: 600;
-    transition: all 0.5s;
-}
-.Options > div > button:hover{
-    background-color: rgb(158, 239, 253);
-}
-.DialogInputFeild{
-    height: 4vmax;
-    text-align: center;
-    font-size: large;
-    width: 100%;
-}
-@media screen and (max-width:600px) {
-    .Container{
-        display: flex;
-        flex-direction: column;
-    }
+    flex-direction: column;
+  }
 }

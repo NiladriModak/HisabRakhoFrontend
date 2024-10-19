@@ -78,6 +78,8 @@ export const register = (userData) => async (dispatch) => {
 
     const { data } = await axios.post(`/api/register`, userData, config);
     // console.log(data)
+    console.log("hi2");
+
     localStorage.setItem("UserToken", data.token);
     localStorage.setItem("UserName", data.user.name);
     dispatch({ type: REGISTER_USER_SUCCESS, payload: data.user });

@@ -17,6 +17,7 @@ function Login() {
   const alert = useAlert();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [disable, setDisable] = useState(false);
   useEffect(() => {
     if (error) {
       toast.error(error);
@@ -28,11 +29,13 @@ function Login() {
     // console.log("from login.js auth = ",isAuthenticated)
   }, [dispatch, toast, error, isAuthenticated, navigate]);
   const submitHandler = async (event) => {
+    setDisable(true);
     const myForm = new FormData();
     // console.log(username,password)
     myForm.set("email", username);
     myForm.set("password", password);
     await dispatch(userLogin(myForm));
+    setDisable(false);
   };
   return (
     <div className="MainContainer">
@@ -64,7 +67,12 @@ function Login() {
           <Link to={"/forgetPassword"}>Forget Password</Link>
           <Link to={"/signUp"}>Sign Up</Link>
           <div>
-            <button onClick={(event) => submitHandler(event)}>Login</button>
+            <button
+              disabled={disable}
+              onClick={(event) => submitHandler(event)}
+            >
+              Login
+            </button>
           </div>
         </div>
       </div>

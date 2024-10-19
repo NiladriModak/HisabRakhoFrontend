@@ -1,34 +1,36 @@
-.SideBarDiv{
-    width: 25%;
-    background-color: rgb(207, 207, 252);
-    border: 3px solid rgb(167, 180, 255);;
-    position: relative;
-    margin: 1.2vmax;
+.SideBarDiv {
+  width: 100%;
+  height: 100%;
+  background-color: rgb(105, 205, 252);
+  border: 3px solid rgb(107, 164, 235);
+  position: relative;
+  color: white;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.AllOptions {
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.AllOptions a {
+  text-decoration: none;
+  color: white;
+  color: rgb(0, 0, 0);
+  font: 500 1rem "Roboto";
+  padding: 2rem;
+  transition: all 0.5s;
+}
+@media screen and (max-width: 600px) {
+  .SideBarDiv {
+    width: 100%;
+    color: white;
+    margin: 0.8 vmax;
     display: flex;
     align-items: flex-start;
     justify-content: center;
-}
-.AllOptions{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-}
-.AllOptions a {
-    text-decoration: none;
-    color: rgb(0, 0, 0);
-    font: 200 1rem "Roboto";
-    padding: 2rem;
-    transition: all 0.5s;
-}
-@media screen and (max-width:600px){
-    .SideBarDiv{
-        width: 92%;
-        background-color: rgb(207, 207, 252);
-        border: 3px solid rgb(167, 180, 255);;
-        margin: 1.2vmax;
-        display: flex;
-        align-items: flex-start;
-        justify-content: center;
-    }
+  }
 }
