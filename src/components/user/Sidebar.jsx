@@ -13,7 +13,6 @@ function Sidebar() {
         <Link to="/allProduct">Product</Link>
         <Link to="/allCatagories">Catagories</Link>
         <Link to="/allVendors">Vendors</Link>
-        <Link to="/history">History</Link>
         <Link to="/makeBill">Make Bill</Link>
       </div>
     </div>

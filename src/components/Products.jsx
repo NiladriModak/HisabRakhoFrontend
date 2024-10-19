@@ -84,6 +84,7 @@ function Products() {
               Quantity
             </Box>
           </Box>
+
           {product &&
             product.map((item) => <ProductBox key={item._id} product={item} />)}
           {product && product.length === 0 && (
