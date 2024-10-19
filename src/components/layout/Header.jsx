@@ -216,8 +216,9 @@ function Header() {
         <Link
           to={localStorage.getItem("UserToken") ? "/dashboard" : "/Login"}
           className="ProfileIconDiv"
+          style={{ textDecoration: "none" }}
         >
-          <AccountCircleIcon sx={{ fontSize: 40 }} />
+          <AccountCircleIcon sx={{ fontSize: 40, textDecoration: "none" }} />
         </Link>
         <LogoutIcon
           className="Logout"

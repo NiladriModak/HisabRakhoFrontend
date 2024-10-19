@@ -1,10 +1,15 @@
-.VendorBox{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    text-decoration: none;
-    color: black;
-    cursor: pointer;
+.VendorBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  cursor: pointer;
+  width: fit-content;
+  height: fit-content;
+  border: 1px solid black;
+  margin: 8px;
+  border-radius: 4px;
 }
